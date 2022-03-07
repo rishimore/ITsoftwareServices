@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="ApexWireMethodToFunction" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <template if:true={projectAssigns.data}>
+                <template for:each={projectAssigns.data} for:item="projectAssign">
+                    <p key={projectAssign.Id}>{projectAssign.Name}</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
