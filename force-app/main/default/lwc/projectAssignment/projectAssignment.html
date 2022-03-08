@@ -1,11 +1,20 @@
 <template>
-    <lightning-card title="ApexWireMethodToFunction" icon-name="custom:custom63">
-        <div class="slds-m-around_medium">
-            <template if:true={projectAssigns.data}>
-                <template for:each={projectAssigns.data} for:item="projectAssign">
-                    <p key={projectAssign.Id}>{projectAssign.Name}</p>
-                </template>
-            </template>
+    <lightning-card title="Display Project" icon-name="custom:custom63">
+        <lightning-combobox
+            name="Project"
+            label="Project Name"
+            placeholder="Choose Project"
+            value={value}
+            onchange={handleChange}
+            options={projectOptions}>
+        </lightning-combobox>
+   
+        <!-- <p></p>
+        Selected Value:
+        <lightning-formatted-text title="Chosen Key" value={selectedValue}></lightning-formatted-text>-->
+
+        <div class="slds-m-vertical_medium">
+            <p>The label of the button that was clicked is: <span class="slds-text-heading_small">{chosenValue}</span></p>
         </div>
     </lightning-card>
 </template>

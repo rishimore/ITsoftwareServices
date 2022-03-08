@@ -1,17 +1,19 @@
+/* eslint-disable no-console */
 import { LightningElement , wire, track} from 'lwc';
-import getProjects from '@salesforce/apex/ProjectAssignmentClass.getProjects';
+
+//import method which should be used from Controller
+import getUserRoles from '@salesforce/apex/UserRoleController.getUserRoles';
 
 let i=0;
-export default class ProjectAssignment extends LightningElement {
-    
- 
+export default class DisplayUserRole extends LightningElement {
+
     @track items = []; //this will hold key, value pair
     @track value = ''; //initialize combo box value
 
     @track chosenValue = '';
 
-    @wire(getProjects)
-    wiredProjects({ error, data }) {
+    @wire(getUserRoles)
+    wiredUserRoles({ error, data }) {
         if (data) {
 
             //create array with elements which has been retrieved controller
@@ -27,7 +29,7 @@ export default class ProjectAssignment extends LightningElement {
     }
 
     //gettter to return items which is mapped with options attribute
-    get projectOptions() {
+    get roleOptions() {
         return this.items;
     }
 
@@ -42,5 +44,4 @@ export default class ProjectAssignment extends LightningElement {
     get selectedValue(){
         return this.chosenValue;
     }
-    
 }
