@@ -1,0 +1,21 @@
+<template>
+    <lightning-card  title="Employee Assignment Form" icon-name="utility:record_create">
+        <div class="slds-m-around_small">
+            <lightning-combobox
+            name="progress"
+            label="Status"
+            value={projectId}
+            placeholder="Select Progress"
+            options={projectList}
+            onchange={onProjectSelect} ></lightning-combobox>
+            <lightning-combobox
+            if:false={projectSelected}
+            name="progress"
+            label="Status"
+            value={skillId}
+            placeholder="Select Progress"
+            options={skillList}
+            onchange={onSkillSelection} ></lightning-combobox>
+	    </div>
+    </lightning-card>
+</template>
